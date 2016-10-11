@@ -3,14 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Welcome to miracle-online</title>
+  <title>基于Redis的分布式爬虫系统 | Welcome to miracle-online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to miracle-online">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="RedisRedis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 它支持多种类型的数据结构，如 字符串（strings）， 散列（hashes）， 列表（lists）， 集合（sets）， 有序集合（sorted sets） 与范围查询， bitmaps， hyperloglogs 和 地理空间（geospatial） 索引半径查询。
+和Redis类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Redis的分布式爬虫系统">
+<meta property="og:url" content="http://yoursite.com/2016/10/11/Redis实现分布式爬虫/index.html">
 <meta property="og:site_name" content="Welcome to miracle-online">
+<meta property="og:description" content="RedisRedis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 它支持多种类型的数据结构，如 字符串（strings）， 散列（hashes）， 列表（lists）， 集合（sets）， 有序集合（sorted sets） 与范围查询， bitmaps， hyperloglogs 和 地理空间（geospatial） 索引半径查询。
+和Redis类">
+<meta property="og:image" content="http://oergbco0f.bkt.clouddn.com/Scrapy%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F.png">
+<meta property="og:image" content="http://oergbco0f.bkt.clouddn.com/%E5%9F%BA%E4%BA%8ERedis%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F%E7%88%AC%E8%99%ABWeb%20API%E7%B3%BB%E7%BB%9F%E6%B5%81%E7%A8%8B%E5%9B%BE.png">
+<meta property="og:updated_time" content="2016-10-11T09:07:06.467Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to miracle-online">
+<meta name="twitter:title" content="基于Redis的分布式爬虫系统">
+<meta name="twitter:description" content="RedisRedis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 它支持多种类型的数据结构，如 字符串（strings）， 散列（hashes）， 列表（lists）， 集合（sets）， 有序集合（sorted sets） 与范围查询， bitmaps， hyperloglogs 和 地理空间（geospatial） 索引半径查询。
+和Redis类">
+<meta name="twitter:image" content="http://oergbco0f.bkt.clouddn.com/Scrapy%E5%AE%9E%E7%8E%B0%E5%88%86%E5%B8%83%E5%BC%8F.png">
   
     <link rel="alternate" href="/atom.xml" title="Welcome to miracle-online" type="application/atom+xml">
   
@@ -59,9 +69,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Redis实现分布式爬虫" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Redis实现分布式爬虫" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/10/11/Redis实现分布式爬虫/" class="article-date">
   <time datetime="2016-10-11T09:07:06.475Z" itemprop="datePublished">2016-10-11</time>
@@ -74,8 +82,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/11/Redis实现分布式爬虫/">基于Redis的分布式爬虫系统</a>
+    <h1 class="article-title" itemprop="name">
+      基于Redis的分布式爬虫系统
     </h1>
   
 
@@ -132,69 +140,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-Python并发" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/10/10/Python并发/" class="article-date">
-  <time datetime="2016-10-10T10:01:00.195Z" itemprop="datePublished">2016-10-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/10/Python并发/">Python并发</a>
-    </h1>
+    <a href="/2016/10/10/Python并发/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Python并发</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h3><p>Python多线程最为人诟病的是其GIL（Global Interpreter Lock），由于GIL的存在，Python多线程只能叫伪多线程，并不能够利用多核CPU。对于IO密集型应用，使用多线程可以达到并发的效果；而对于计算密集型应用，使用多线程不仅不能达到并发，甚至还增加额外开销。<a href="http://cenalulu.github.io/python/gil-in-python/" target="_blank" rel="external"><em>了解GIL</em></a></p>
-<p>当然使用多线程有个好处就是使代码看起来逻辑很简单，这也是还有人继续使用多线程的原因之一。</p>
-<h3 id="多进程"><a href="#多进程" class="headerlink" title="多进程"></a>多进程</h3><p>由于Python多线程不能利用多核CPU，这就衍生了多进程（multiprocessing），它提供了类似多线程的API，方便开发者将多线程代码迁移至多进程。多进程能够实现真正的并发，能够利用多核CPU，一个进程使用一个核心的CPU。一般设置多进程worker数目为1&lt;=worker&lt;=cpu count，即使是IO密集型应用，也不建议worker数目超过CPU核心数，毕竟进程的开销是比较大的。</p>
-<h5 id="多进程遇到的坑"><a href="#多进程遇到的坑" class="headerlink" title="多进程遇到的坑"></a>多进程遇到的坑</h5><p>我使用的是Python2.7，在使用多进程调用其他py文件的类方法或者实例方法时，总是调用失败，调用没有反应。查询了一些文档，最后得知多进程在调用类方法时，需要先将其序列化，而在Python2.7，类方法和实例方法是不能够直接序列化的，静态方法则可以。</p>
-<p>可以借鉴网上流传的一种思路，定义一个全局的代理函数，将类名和要传入的参数作为参数列表传给这个代理函数，正好避免了序列化类方法。当然还可以使用子进程来代替多进程，同样可以实现真正并发。</p>
-<p><em>Python2.x：The following types can be pickled:</em></p>
-<ul>
-<li><em>None, True, and False</em></li>
-<li><em>integers, long integers, floating point numbers, complex numbers</em></li>
-<li><em>normal and Unicode strings</em></li>
-<li><em>tuples, lists, sets, and dictionaries containing only picklable objects</em></li>
-<li><em>functions defined at the top level of a module</em></li>
-<li><em>built-in functions defined at the top level of a module</em></li>
-<li><em>classes that are defined at the top level of a module</em></li>
-<li><em>instances of such classes whose __dict__ or the result of calling __getstate__() is picklable (see section The pickle protocol for details)</em></li>
-</ul>
-<h3 id="子进程"><a href="#子进程" class="headerlink" title="子进程"></a>子进程</h3><p>开启多进程的方法除了multiprocessing，还可以使用子进程（subprocess），子进程模块不是Pyhton2.7自带的，需要安装subprocess模块（建议安装更新的subprocess32模块）。子进程不能像多进程一样直接调用其他方法，而是需要通过命令行命令来调用其他模块。就好比说multiprocessing可以直接调用test.py里面的a方法，而subprocess不行，它只能够执行<code>python test.py</code>。</p>
-<p>很多时候，当你的程序需要执行命令行命令的时候，subprocess就变得很有用了。我们还可以使用管道将子进程中输出内容打印至主进程，实现数据的传递。</p>
-<h3 id="协程"><a href="#协程" class="headerlink" title="协程"></a>协程</h3><p>我们都知道Node.js天生支持高并发，而Node.js却是单线程模型，原来它是通过异步IO来实现并发。</p>
-<p>我们已经知道，CPU的速度远远快于磁盘、网络等IO。在一个线程中，CPU执行代码的速度极快，然而，一旦遇到IO操作，如读写文件、发送网络数据时，就需要等待IO操作完成，才能继续进行下一步操作。这种情况称为同步IO。</p>
-<p>多线程和多进程的模型虽然解决了并发问题，但是系统不能无上限地增加线程。由于系统切换线程的开销也很大，所以，一旦线程数量过多，CPU的时间就花在线程切换上了，真正运行代码的时间就少了，结果导致性能严重下降。</p>
-<p>使用异步IO，当代码需要执行一个耗时的IO操作时，它只发出IO指令，并不等待IO结果，然后就去执行其他代码了。一段时间后，当IO返回结果时，再通知CPU进行处理。Python中的协程（gevent）即实现了异步IO。</p>
-<p>所以使用协程，即使在单线程中，对于IO密集型应用，也能达到很高的并发，完全秒杀多线程。所以Python要实现高并发，多进程+协程是一个很好的方案，多进程用于利用多核CPU，协程用于高效利用每个核心的CPU。所以，抛弃Python多线程吧。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/10/Python并发/" data-id="ciu59nq5e00009766omu5fqhu" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
 
 </section>
         
